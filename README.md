@@ -70,65 +70,50 @@ end
 # t.references :user
 class Topic
  # relationships
- has_many :appointments
- has_many :doctors, through: :appointments
+ has_many :interest_levels
+ has_many :users, through: :interest_levels
 	# validations
  validates :name, presence: true
 
 end
 
-# table migration for: appointments
 
-# t.references :doctor
-# t.references :patient
-# t.datetime :start_time
-# t.datetime :end_time
-# t.string :location
+# table migration for: interest_levels
+# t.references :topic
+# t.references :user
 
-class Appointment
+class InterestLevel
  # relationships
- belongs_to :doctor
- belongs_to :patient
+ belongs_to :topic
+ belongs_to :user
 	# validations
- validates :doctor_id, :patient_id, :start_time, :end_time, :location, presence: true
+ validates :topic_id, :user_id,  presence: true
 	# user submittable attributes (if this is a join model)
-	 #start_time, end_time and location
+	 #user_interest_level
 # scope_methods (if any)
- # Appointment.past => appointments that have ended already.
- # Appointment.upcoming => appointments that haven't started yet.
+ # InterestLevel.topic_average => shows total average of all users' interst_level ratings for an interest.
+ # InterestLevel.most_recent => shows a list of the last topics that have been given an interest_level by users.
 end
-
-# table migration for: users
-
-# t.string :email
-# t.string :password_digest
-
-class User
- # relationships
- has_many :patients
- has_many :doctors, through: :patients
- has_many :appointments, through: :patients
- # validations
-end
-```
 
 - [x]  Using Ruby on Rails for the project
 - [x]  Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes)
-    - [ ]  User has_many :interests, through: interest_levels
+    - [ ]  User has_many :topics, through: interest_levels
 - [x]  Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
     - [ ]  :interest_level belongs_to :interest
     - [ ]  :interest_level belongs_to :user
 - [x]  Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
-    - [ ]  User has_many :interests, through: interest_levels
-    - [ ]  Interest has_many :users, through: interest_levels
-- [ ]  Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
-    - [ ]  User has_many :interests, through: interest_levels
-    - [ ]  Interest has_many :users, through: interest_levels
-- [ ]  The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
-    - [ ]  user's interest level - user_interest_level
-- [ ]  Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
-    - [ ]  
-- [ ]  Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+    - [ ]  User has_many :topics, through: interest_levels
+    - [ ]  Topic has_many :users, through: interest_levels
+- [x ]  Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
+    - [ ]  User has_many :topics, through: interest_levels
+    - [ ]  Topic has_many :users, through: interest_levels
+- [x ]  The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
+    - [ ]  users' rating of interest in a topic - user_interest_level
+- [ x]  Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+    - [User must have username, password ]
+    - [Topic must have name] 
+    -[InterestLevel must have user_id, interest_id, user_interest_level] 
+- [ x]  Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
     - [ ]  
 - [ ]  Include signup
     - [ ]  
