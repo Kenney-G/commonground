@@ -137,7 +137,7 @@ Confirm:
 - [ ]  Views use helper methods if appropriate
 - [ ]  Views use partials if appropriate
 
-1. Your models must:
+=begin 1. Your models must:
 
     > • Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships• Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
 
@@ -178,4 +178,4 @@ Confirm:
 
     > • Logic present in your controllers should be encapsulated as methods in your models.• Your views should use helper methods and partials when appropriate.• Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 
-18. **Do not** use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
+18. **Do not** use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding. =end
