@@ -12,7 +12,7 @@ InterestLevel must have a user_interest_level
 
 ## **What Validations do we need?**
 
-Users must have a username, password, interest, and user_interest_level
+Users must have an email, password, interest, and user_interest_level
 
 Topics must have a name and at least one user_interest_level
 
@@ -42,12 +42,12 @@ Appointment.past => appointments that have ended already.Appointment.upcoming =>
 
 ```ruby
 # table migration for: users
-# t.string :username
+# t.string :email
 # t.string :password_digest
 class CreateUser < ActiveRecord::Migration[5.2]
 	def change
 		create_table :User do |t|
-			t.string :username
+			t.string :email
 			t.string :password_digest
 	end
 end
@@ -59,6 +59,7 @@ class User
 	has_many topics, through: :interest_levels
 # validations
  :username, presence: true, uniqueness: true
+ :email, presence: true, uniqueness: true
  :password, presence: true
 
 # scope_methods (if any)
