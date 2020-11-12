@@ -57,4 +57,6 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'dotenv'
+gem 'dotenv-rails'
 gem 'better_errors'
+gem "simple_form", "~> 5.0"
