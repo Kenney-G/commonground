@@ -58,3 +58,7 @@ gem 'dotenv'
 gem 'dotenv-rails'
 gem 'better_errors'
 gem "simple_form", "~> 5.0"
+gem 'bootstrap', '~> 5.0.0.alpha2'
+gem "bootswatch"
+
+gem "sassc-rails", "~> 2.1"
