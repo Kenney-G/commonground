@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   #change the basic url to be home/index
   root to: "home#index"
   get 'home/index'
