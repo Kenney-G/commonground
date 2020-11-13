@@ -1,2 +1,7 @@
 <h1>Commonground</h1>
 <p>Rate interests and find yours.</p>
+
+<% if current_user %>
+  <h3><%= current_user.username %></h3>
+  <h3><%= current_user.email %></h3>
+<% end %>
