@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :topics, through: :interest_levels
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:github]
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
          def self.from_omniauth(auth)
           where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
