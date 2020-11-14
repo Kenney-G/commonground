@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :interest_levels
+  resources :topics
   root to: "application#home"
 
 devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

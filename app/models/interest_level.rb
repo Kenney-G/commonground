@@ -1,0 +1,2 @@
+class InterestLevel < ApplicationRecord
+end
