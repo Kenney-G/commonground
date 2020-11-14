@@ -1,10 +1,6 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :interest_levels
+  has_many :topics, through: :interest_levels
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:github]
@@ -17,7 +13,9 @@ class User < ApplicationRecord
             user.skip_confirmation!
           end
         end
+
         def email_required?
           false
         end 
+        
 end
