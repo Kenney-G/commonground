@@ -1,6 +1,6 @@
-class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     skip_before_action :verify_authenticity_token, only: :github
-    
+
     def github
         @user = User.from_omniauth(request.env["omniauth.auth"])
         if @user.persisted?
@@ -13,6 +13,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
  
       def failure
-        redirect_to root_path
+        set_flash_message! :alert, :failure, kind: OmniAuth::Utils.camelize(failed_strategy.name), reason: failure_message
+        redirect_to after_omniauth_failure_path_for(resource_name)
       end
 end
