@@ -3,10 +3,9 @@ class User < ApplicationRecord
   has_many :interest_levels
   has_many :topics, through: :interest_levels
   validates :username, presence: true, uniqueness: { case_sensitive: false }
-  
-  devise :database_authenticatable, :registerable,
+    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:github]
-validates :username, presence: true, uniqueness: { case_sensitive: false }
+         
          def self.from_omniauth(auth)
           where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
             user.email = auth.info.email

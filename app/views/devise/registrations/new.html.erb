@@ -8,8 +8,8 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "username" }%>
-    <%= f.input :email,
-                required: true,
+    <%= f.input :email, label: "Email (optional):",
+                required: false,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
