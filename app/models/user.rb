@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_writer :login
   has_many :interest_levels
   has_many :topics, through: :interest_levels
 
@@ -13,9 +14,13 @@ class User < ApplicationRecord
             user.skip_confirmation!
           end
         end
-
+        #skip email field requirement for username sign in
         def email_required?
           false
         end 
-        
+  
+        #allow user to sign in using email or username
+        def login
+          @login || self.username || self.email
+        end
 end
