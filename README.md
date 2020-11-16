@@ -17,9 +17,10 @@ Commonground is a web application for users to find other users who share their 
  - yarn
    Dependencies for these will vary based on your OS and package manager.
 
-* Setting up
+### Setting up
+
 <br> 
-In your terminal:
+* In your terminal:
 <br> 
     - git clone https://www.github.com/kenney-g/commonground.git
     - cd commonground
@@ -31,16 +32,14 @@ In your terminal:
     - rails s
     - ctrl/cmd + c to stop the local server
     <br> 
-In your web browser:
+* In your web browser:
 <br> 
     - localhost:3000
     <br> 
 <br> 
-* Database
-<br> 
     rails db:migrate will handle the initial database set-up
 <br> 
-* Use
+### Use
 <br> 
 From the home page you can sign up and rate your interest in your first topic. Either username or email is accepted as well as login via github. To use the github sign-in, you'll need to head to [github's developer portal](https://github.com/settings/developers) and make a new oauth app. Enter http://localhost:3000/ for the homepage url and http://localhost:3000/users/auth/github/callback for the callback url. In your terminal or file explorer head to commonground/app/config/initializers/devise.rb and replace the two areas in quotes next to config.omniauth :github, "APP_ID", "APP_SECRET" with the secret and client ID given to you after creating your app.
 <br>
