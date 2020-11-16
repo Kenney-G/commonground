@@ -59,3 +59,5 @@ gem 'omniauth', '1.9.1'
 gem 'omniauth-github', '1.4.0'
 gem 'simple_form', '5.0.3'
 gem 'devise', '4.7.3'
+
+gem "faker", "~> 2.14"
