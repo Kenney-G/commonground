@@ -1,4 +1,4 @@
-class InterestLevel < ApplicationRecord
+class Interest < ApplicationRecord
     belongs_to :user
     belongs_to :topic
         scope :recent, -> { where "created_at DESC", :limit => 10)

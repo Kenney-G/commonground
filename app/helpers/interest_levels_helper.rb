@@ -1,2 +1,2 @@
-module InterestLevelsHelper
+module InterestsHelper
 end

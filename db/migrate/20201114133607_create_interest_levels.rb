@@ -1,4 +1,4 @@
-class CreateInterestLevels < ActiveRecord::Migration[6.0]
+class CreateInterests < ActiveRecord::Migration[6.0]
   def change
     create_table :interest_levels do |t|
       t.belongs_to :user
