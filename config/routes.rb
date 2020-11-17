@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+root to: "application#home"
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :users do
+  resources :users, only: [:update, :show] do
     resources :topics do
      resources :interests
     end
@@ -17,8 +19,5 @@ resources :interests do
       resources :users
   end
 end
-
-  root to: "application#home"
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
 end

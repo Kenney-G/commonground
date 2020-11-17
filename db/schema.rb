@@ -13,11 +13,18 @@
 ActiveRecord::Schema.define(version: 2020_11_14_133607) do
 
   create_table "interests", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "topic_id"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["topic_id"], name: "index_interests_on_topic_id"
+    t.index ["user_id"], name: "index_interests_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
