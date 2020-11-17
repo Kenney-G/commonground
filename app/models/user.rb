@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :interests
   has_many :topics, through: :interests
   validates :username, presence: true, uniqueness: { case_sensitive: false }
+
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:github]
          
@@ -14,6 +15,7 @@ class User < ApplicationRecord
             user.skip_confirmation!
           end
         end
+
         #skip email field requirement for username sign in
         def email_required?
           false

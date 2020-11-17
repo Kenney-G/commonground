@@ -4,7 +4,9 @@ class CreateInterests < ActiveRecord::Migration[6.0]
       t.belongs_to :user
       t.belongs_to :topic
       #user submittable attribute
-      t.text :comment
+      t.string :name, :null => false
+      #Ex:- :null => false
+      t.text :description
       t.timestamps
     end
   end
