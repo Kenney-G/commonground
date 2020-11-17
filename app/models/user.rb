@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_writer :login
-  has_many :interest_levels
-  has_many :topics, through: :interest_levels
+  has_many :interests
+  has_many :topics, through: :interests
   validates :username, presence: true, uniqueness: { case_sensitive: false }
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:github]

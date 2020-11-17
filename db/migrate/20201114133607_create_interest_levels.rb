@@ -1,6 +1,6 @@
 class CreateInterests < ActiveRecord::Migration[6.0]
   def change
-    create_table :interest_levels do |t|
+    create_table :interests do |t|
       t.belongs_to :user
       t.belongs_to :topic
       #user submittable attribute

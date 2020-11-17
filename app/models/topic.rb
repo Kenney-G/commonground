@@ -1,4 +1,4 @@
 class Topic < ApplicationRecord
-    has_many :interest_levels
-    has_many :users, through: :interest_levels
+    has_many :interests
+    has_many :users, through: :interests
 end
