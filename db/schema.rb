@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_133607) do
   create_table "interests", force: :cascade do |t|
     t.integer "user_id"
     t.integer "topic_id"
+    t.integer "level"
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false

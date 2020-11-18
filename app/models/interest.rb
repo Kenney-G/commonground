@@ -18,7 +18,7 @@ class Interest < ApplicationRecord
         User.topic.id.interest.id(level = 1)
     end
     
-binding.pry
+
 
     def self.recent
         order(created_at: :desc)
