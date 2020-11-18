@@ -15,6 +15,7 @@
   <div class="container">
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
+       <%= link_to "Sign in with Github", user_github_omniauth_authorize_path %>
     <%= yield %>
     </div>
   </body>
