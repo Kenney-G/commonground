@@ -18,4 +18,17 @@ class InterestsController < ApplicationController
         end
     end
 
+    def update
+        if @interest.update(interest_params)
+          redirect_to interest_path(@interest)
+        else
+          render :edit
+        end
+      end
+    
+      def destroy
+        @interest.destroy
+        redirect_to interests_path
+      end
+
 end

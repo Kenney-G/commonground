@@ -1,10 +1,10 @@
 require 'pry'
 class Interest < ApplicationRecord
-    belongs_to :user
-    belongs_to :topic
+    belongs_to :user, optional: true
+    belongs_to :topic, optional: true
 
-    validates :name, :level, :description, presence: true
-    validates_associated :users, :topics
+    validates :name, presence: true
+    validates_associated :user, :topic
     
     def self.by_user(user)
         where(user_id: user.id)

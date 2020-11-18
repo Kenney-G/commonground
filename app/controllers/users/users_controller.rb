@@ -8,4 +8,6 @@ def email_required?
     false
 end
 
+
+
 end

@@ -24,5 +24,5 @@ Topic.create!(name: "Social sciences and society", description: "Economics, poli
 Topic.create!(name: "Technology and applied sciences", description: "Engineering, computer science, robotics etc." )
   
 10.times do 
-    Interest.create!(name: Faker::Commerce.department, user_id: User.find(User.pluck(:id).sample))
+    Interest.create!(name: Faker::Commerce.department)
 end
