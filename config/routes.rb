@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 root to: "application#home"
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-
-  resources :app_users, only: [:update, :show] do
+  resources :users, only: [:update, :show] do
     resources :topics do
      resources :interests
     end

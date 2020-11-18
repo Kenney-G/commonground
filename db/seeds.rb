@@ -8,7 +8,7 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do
-    User.create!(username: Faker::Internet.user_name, email: Faker::Internet.safe_email, password: Faker::Internet.password(min_length: 6, max_length: 20, mix_case: true, special_characters: true))
+    User.create!(username: Faker::Internet.unique.user_name, email: Faker::Internet.unique.safe_email, password: Faker::Internet.unique.password(min_length: 6, max_length: 20, mix_case: true, special_characters: true))
 end
 
 Topic.create!(name: "Art and culture", description: "Express yourself." )
@@ -23,3 +23,6 @@ Topic.create!(name: "Religion and spirituality", description: "Higher power." )
 Topic.create!(name: "Social sciences and society", description: "Economics, politics, psychology, education and much much more" )
 Topic.create!(name: "Technology and applied sciences", description: "Engineering, computer science, robotics etc." )
   
+10.times do 
+    Interest.create!(name: Faker::Commerce.department, user_id: User.find(User.pluck(:id).sample))
+end

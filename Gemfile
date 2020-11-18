@@ -42,6 +42,7 @@ group :development do
   # gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors', '2.9.1'
   gem 'dotenv', '2.7.6'
+  gem 'pry'
   gem 'awesome_print'
 end
 
