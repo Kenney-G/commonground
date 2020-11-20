@@ -24,18 +24,4 @@ class User < ApplicationRecord
             end
           end
 
-          after_initialize
-          def self.username
-              if !self.username?
-              email = self.email.split(/@/)
-              login_taken = Pro.where(:username => email[0]).first
-              unless login_taken
-                self.username = email[0]
-              else    
-                self.username = self.email
-              end   
-            end     
-          end
-
-
         end

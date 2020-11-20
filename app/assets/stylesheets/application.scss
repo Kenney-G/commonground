@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+.nav-item {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+.dropdown-toggle {
+    color: rgb(18, 72, 219) !important;
+    font-size: 17px !important;
+    font-weight: bold !important;
+}
