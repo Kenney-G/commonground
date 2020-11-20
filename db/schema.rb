@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_19_215030) do
+ActiveRecord::Schema.define(version: 2020_11_20_062935) do
 
   create_table "interests", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "topic_id", null: false
     t.string "name"
     t.string "level"
+    t.text "description"
     t.index ["topic_id"], name: "index_interests_on_topic_id"
     t.index ["user_id"], name: "index_interests_on_user_id"
   end
@@ -24,6 +25,8 @@ ActiveRecord::Schema.define(version: 2020_11_19_215030) do
   create_table "topics", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
