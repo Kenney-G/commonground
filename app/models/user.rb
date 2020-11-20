@@ -5,6 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
+  before_create :set_username
 
          def self.from_omniauth(auth)
           where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -24,4 +25,14 @@ class User < ApplicationRecord
             end
           end
 
+          private
+
+          def set_username
+            if User.exists?(username: "#{self.email[/^[^@]+/]}")
+               self.username = "#{self.email[/^[^@]+/]}-#{SecureRandom.hex(1)}"
+            else
+              self.username = "#{self.email[/^[^@]+/]}"
+            end
+          end
+      
         end
