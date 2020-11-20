@@ -1,1 +1,4 @@
-<p>Welcome, <%=current_user.username%><p>
+<h1>Users</h1>
+<%= User.all do |u| %>
+<p>u</p>
+<%end%>
