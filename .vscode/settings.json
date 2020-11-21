@@ -1,0 +1,9 @@
+{
+    "files.autoSave": "onFocusChange",
+    "files.autoSaveDelay": 100,
+    "editor.fontFamily": "'PT Sans', 'Regular', monospace, 'Droid Sans Fallback'",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.wordWrap": "on",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorBlinking": "smooth"
+}
