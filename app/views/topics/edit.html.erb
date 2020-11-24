@@ -1,0 +1,16 @@
+<%= form_for @topic do |f| %>
+  <%= @topic.inspect %>
+  <br />
+  <% if @topic.interests.present? %>
+    <%= f.fields_for :interests do |intrst| %>
+      <% user = intrst.object.user %>
+      <%= user.name %>
+      Admin?
+      <%= intrst.check_box :admin %>
+      <br />
+    <% end %>
+  <% else %>
+    No Users in this topic yet
+  <% end %>
+  <%= f.submit 'Update topic' %>
+<% end %>
